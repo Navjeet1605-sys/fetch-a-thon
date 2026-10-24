@@ -1,0 +1,34 @@
+**Leave Application (Today)**  
+
+```
+[Your Name]  
+[Your Designation]  
+[Department]  
+[Employee ID]  
+[Company Name]  
+[Company Address]  
+
+Date: [Today’s Date]  
+
+**To**  
+The Manager / [Manager’s Name]  
+[Department/Office]  
+
+**Subject:** Request for Leave – [Date]
+
+Dear [Manager’s Name],
+
+I hope this message finds you well. I am writing to inform you that I am unable to attend work today, [Today’s Date], due to [brief reason – e.g., personal emergency / sudden illness / unforeseen circumstances].  
+
+I have ensured that all urgent tasks are either completed or delegated to [Colleague’s Name] so that the workflow remains uninterrupted. I will be reachable via phone/email for any pressing matters and will resume my duties tomorrow, [Tomorrow’s Date].
+
+Thank you for your understanding and consideration.
+
+Yours sincerely,
+
+[Your Signature (if printing)]  
+[Your Printed Name]  
+[Contact Information]  
+```
+
+*Feel free to adjust the reason, dates, and any details to suit your situation.*

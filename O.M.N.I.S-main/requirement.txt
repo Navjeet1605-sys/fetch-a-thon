@@ -1,0 +1,16 @@
+python-dotenv 
+groq 
+pywhatkit 
+bs4  
+Pillow 
+rich 
+requests 
+keyboard 
+cohere 
+googlesearch-python 
+selenium 
+webdriver-manager
+diffusers
+transformers
+accelerate
+safetensors

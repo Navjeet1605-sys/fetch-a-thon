@@ -1,0 +1,10 @@
+
+ddgs
+groq
+python-dotenv
+rich
+pywhatkit
+beautifulsoup4
+requests
+keyboard
+cohere
