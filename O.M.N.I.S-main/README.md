@@ -1,10 +1,11 @@
-# 🌌 O.M.N.I.S: Autonomous Multi-Agent Personal AI
+# 🌌 O.M.N.I.S: Omni-Modal Network Intelligence Swarm
 
 ![tag:innovationlab](https://img.shields.io/badge/innovationlab-3D8BD3)
 ![tag:hackathon](https://img.shields.io/badge/hackathon-5F43F1)
-[![Fetch.ai](https://img.shields.io/badge/Fetch.ai-uAgents-blue)](https://fetch.ai/)
+[![Fetch.ai](https://img.shields.io/badge/Fetch.ai-uAgents_v0.25+-blue)](https://fetch.ai/)
 [![Agentverse](https://img.shields.io/badge/Agentverse-Marketplace-purple)](https://agentverse.ai/)
 [![ASI:One](https://img.shields.io/badge/ASI%3AOne-Ready-orange)](https://asi1.ai/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 > **Fetch-A-Thon 3.0 Submission:** *ASI:One Agent Challenge – From Intent to Action*  
 > **Target Tracks:** *Best Multi-Agent Workflow* | *Best Personal AI* | *Best Agentverse Deployment*
@@ -13,136 +14,197 @@
 
 ## 📌 Executive Summary
 
-**O.M.N.I.S (Omni-Modal Networked Intelligence System)** transforms a traditional voice/desktop assistant into an **autonomous multi-agent command center** powered by the **Fetch.ai Ecosystem**.
+**O.M.N.I.S (Omni-Modal Network Intelligence Swarm)** bridges human intent with decentralized autonomous execution. It elevates a personal desktop assistant into an **autonomous multi-agent swarm** natively wired into the **Fetch.ai Ecosystem** and discoverable across **ASI:One**.
 
-Rather than acting as a simple conversational chatbot, O.M.N.I.S turns human intent into real-world autonomous action. When a user asks any question or delegates a complex task (via voice locally or through **ASI:One** over the decentralized network), O.M.N.I.S analyzes the intent and orchestrates specialized Fetch.ai agents to plan, query live market APIs, scrape real-time web sources, and execute actions.
+Rather than acting as a simple conversational wrapper, O.M.N.I.S turns complex intent into real-time verified action:
+- **Financial Intelligence**: Queries real-time Binance and CoinGecko ticker APIs with live USD and INR pricing feeds.
+- **Web & Fact Synthesis**: Combines Wikipedia entity graphs, DuckDuckGo topics, and Groq reasoning engines for instant fact-checking.
+- **Agent Chat Protocol (ACP)**: Full support for official Fetch.ai ACP specifications with interactive `MetadataContent` rich cards and persistent conversational memory (`ctx.storage`).
+- **Autonomous Multi-Agent Router**: Classifies queries using a semantic Decision-Making Model (DMM) to orchestrate specialized sub-agents.
 
 ---
 
 ## 🏗️ System Architecture
 
 ```
-                 [ User Voice / Terminal ]       [ ASI:One Cloud User ]
+                 [ User Voice / Terminal ]       [ ASI:One Cloud / Web UI ]
                             │                              │
-                            │                      (Agent Chat Protocol - ACP)
+                            │                   (Agent Chat Protocol - ACP)
                             │                              │
                             ▼                              ▼
                  ┌────────────────────────────────────────────────────────┐
-                 │       O.M.N.I.S Supervisor & Intent Router             │
-                 │          (Cohere Decision-Making Model)                │
+                 │          O.M.N.I.S Supervisor & Router                 │
+                 │      (Semantic Decision-Making Model - DMM)            │
                  └──────────────────────────┬─────────────────────────────┘
                                             │
-        ┌───────────────────────────────────┼──────────────────────────────────┐
-        ▼                                   ▼                                  ▼
-┌───────────────────────┐       ┌───────────────────────┐       ┌───────────────────────┐
-│ Crypto & Finance Agent│       │   Web Search Agent    │       │ Conversational Agent  │
-│  (Agentverse Address  │       │  (DuckDuckGo + Groq   │       │   (Groq LLaMA Engine  │
-│      + CoinGecko)     │       │     Synthesizer)      │       │     + Knowledge)      │
-└───────────────────────┘       └───────────────────────┘       └───────────────────────┘
-        │                                   │                                  │
-        └───────────────────────────────────┼──────────────────────────────────┘
+         ┌──────────────────────────────────┼──────────────────────────────────┐
+         ▼                                  ▼                                  ▼
+┌────────────────────────┐      ┌────────────────────────┐      ┌────────────────────────┐
+│ Crypto & Finance Agent │      │    Web Search Agent    │      │    Core Swarm AI       │
+│  (Binance Spot Ticker  │      │  (Wikipedia Extraction │      │  (LLaMA 3.3 70B Engine │
+│   + CoinGecko Feeds)   │      │    + DuckDuckGo APIs)  │      │   + ASI:One Gateway)   │
+└────────────────────────┘      └────────────────────────┘      └────────────────────────┘
+         │                                  │                                  │
+         └──────────────────────────────────┼──────────────────────────────────┘
                                             │
                                             ▼
-                           [ Synthesis & Spoken Output ]
-                             (Text-to-Speech Engine)
+                           ┌──────────────────────────────────┐
+                           │      Rich ACP Response Engine     │
+                           │  • Plain Text (TextContent)      │
+                           │  • Interactive Cards (Metadata)  │
+                           │  • Multi-Turn Memory (Storage)   │
+                           └──────────────────────────────────┘
 ```
 
 ---
 
-## ⚡ The Three Pillars of Fetch.ai in O.M.N.I.S
+## ⚡ The Fetch.ai Ecosystem Pillars
 
-### 1. 🤖 `uAgents` Framework (Multi-Agent Swarm)
-- Each agent runs with its own identity, protocol, and message models.
-- **Crypto & Finance Agent** ([`Agents/FinanceAgent`](file:///c:/Users/navje/Downloads/O.M.N.I.S-main/O.M.N.I.S-main/Agents/FinanceAgent/)): Tracks real-time token metrics (BTC, ETH, FET/ASI) and answers macroeconomic questions.
-- **Web Search Agent** ([`Agents/WebSearchAgent`](file:///c:/Users/navje/Downloads/O.M.N.I.S-main/O.M.N.I.S-main/Agents/WebSearchAgent/)): Performs live scraping and voice-friendly fact extraction.
+### 1. 🤖 Autonomous `uAgents` Framework
+- Built on top of Fetch.ai's `uagents` library with autonomous lifecycle handlers (`@agent.on_event("startup")`, `@agent.on_interval(period=300)`).
+- Every agent operates with its own identity, cryptographic keys, and structured communication protocols.
 
-### 2. 🌐 `Agentverse` Integration
-- Integrates directly with existing Agentverse marketplace agents, including the official **Finance Q&A Agent** (`agent1qdv2qgxucvqatam6nv28qp202f3pw8xqpfm8man6zyegztuzd2t6yem9evl`).
-- Dedicated drop-in script for [Agentverse Launchpad](https://agentverse.ai/agents/launch): [`FetchAI_Ecosystem/agentverse_omnis_cloud.py`](file:///c:/Users/navje/Downloads/O.M.N.I.S-main/O.M.N.I.S-main/FetchAI_Ecosystem/agentverse_omnis_cloud.py).
-- Supports both **Cloud Hosting** (runs 24/7 on Agentverse) and **Mailbox Connection** (connects local agent to Agentverse).
+### 2. 💬 Official Agent Chat Protocol (ACP) & ASI:One
+- Implements standard ACP specifications (`chat_protocol_spec`, `ChatMessage`, `ChatAcknowledgement`).
+- Generates **Rich Metadata Cards** (`MetadataContent`) allowing **ASI:One** to display real-time price gauges, 24h change indicators, high/low metrics, and source verification.
+- **Multi-turn Memory**: Uses `ctx.storage` to persist dialogue context across sessions for fluid follow-up conversations.
 
-### 3. 💬 `ASI:One` & Agent Chat Protocol (ACP)
-- Implements the official **Agent Chat Protocol (ACP)** with `chat_protocol_spec`, `ChatMessage`, `ChatAcknowledgement`, and `TextContent`.
-- Users on **[ASI:One](https://asi1.ai/)** can interact directly with O.M.N.I.S inside the chat interface without needing any custom front-end.
-
----
-
-## 🌐 How to Launch on Agentverse (ASI:One)
-
-To deploy O.M.N.I.S to **[Agentverse Launchpad](https://agentverse.ai/agents/launch)**:
-1. Log in to [https://agentverse.ai/agents/launch](https://agentverse.ai/agents/launch)
-2. Click **+ New Agent** ➔ Select **Blank Agent**
-3. In the code editor (`agent.py`), copy and paste the entire code from:
-   [`FetchAI_Ecosystem/agentverse_omnis_cloud.py`](file:///c:/Users/navje/Downloads/O.M.N.I.S-main/O.M.N.I.S-main/FetchAI_Ecosystem/agentverse_omnis_cloud.py)
-4. In the left navigation, click **Secrets**:
-   - Add Secret Name: `GROQ_API_KEY`
-   - Value: `your_groq_api_key_here` (from https://console.groq.com)
-5. Click **Start** (top right).
-6. Your agent address (`agent1q...`) will appear in the console logs and register with the Almanac contract and **ASI:One** via ACP!
+### 3. 🌐 Agentverse Deployment
+- Ready-to-deploy single-file cloud script: [`FetchAI_Ecosystem/agentverse_omnis_cloud.py`](file:///c:/Users/navje/Downloads/O.M.N.I.S-main/O.M.N.I.S-main/FetchAI_Ecosystem/agentverse_omnis_cloud.py).
+- Seamlessly integrates with the Fetch.ai Almanac registry for network-wide discoverability.
+- Compatible with `avctl` hosted deployment workflows (`agent/`).
 
 ---
 
-## 🚀 Quickstart & Demo Guide
+## 📂 Project Structure
 
-### 1. Interactive Command Center (Ask Anything)
-Launch the unified multi-agent dispatcher:
+```
+├── .env.example                               # Environment secrets template
+├── .gitignore                                 # Git protection for keys and venvs
+├── README.md                                  # Root documentation
+├── requirement.txt                            # Root dependencies
+│
+├── O.M.N.I.S-main/                            # Core Application Package
+│   ├── Main.py                                # Voice-activated desktop assistant
+│   ├── omnis_agent.py                         # Interactive multi-agent command center
+│   │
+│   ├── Agents/                                # Autonomous Multi-Agent Swarm
+│   │   ├── agent_hub.py                       # Unified agent dispatcher & DMM router
+│   │   ├── FinanceAgent/                      # Standalone Fetch.ai Finance Agent
+│   │   │   ├── finance_agent.py               # Live crypto ticker & economic reasoning
+│   │   │   └── protocol.py                    # uAgent FinanceQA message protocol
+│   │   └── WebSearchAgent/                    # Standalone Fetch.ai Web Search Agent
+│   │       ├── search_agent.py                # Wikipedia & DuckDuckGo scraper
+│   │       └── protocol.py                    # uAgent SearchRequest message protocol
+│   │
+│   ├── Backend/                               # Intelligence & Desktop Execution Engines
+│   │   ├── Chatbot.py                         # Conversational Groq LLM client
+│   │   ├── Model.py                           # FirstLayerDMM intent classification
+│   │   ├── RealtimeSearchEngine.py            # Search query optimizer & DDGS integration
+│   │   └── Automation.py                      # Desktop automation (apps, search, media)
+│   │
+│   └── FetchAI_Ecosystem/                     # Fetch.ai & ASI:One Integration Suite
+│       ├── agentverse_omnis_cloud.py          # Drop-in Agentverse Cloud uAgent
+│       ├── omnis_acp_agent.py                 # Local ACP server with Mailbox support
+│       └── test_asione_interaction.py         # End-to-end ACP message testing script
+│
+└── agent/                                     # avctl Hosted Deployment Workspace
+    ├── agent.py                               # avctl agent entrypoint
+    ├── pyproject.toml                         # UV / avctl packaging specification
+    └── .avctl/                                # Agentverse CLI hosting configuration
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone & Set Up Environment
+
 ```bash
+git clone https://github.com/Navjeet1605-sys/fetch-a-thon.git
+cd fetch-a-thon
+
+# Create and activate virtual environment
+python -m venv .venv
+# Windows:
+.venv\Scripts\activate
+# Linux/macOS:
+source .venv/bin/activate
+
+# Install dependencies
+pip install -r requirement.txt
+```
+
+### 2. Configure Secrets
+
+Copy the environment template and insert your API keys:
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env`:
+```env
+GroqAPIKey=your_groq_api_key_here
+CohereAPIKey=your_cohere_api_key_here
+# Optional for Agentverse Mailbox / ASI:One
+AGENTVERSE_MAILBOX_KEY=
+ASI1_API_KEY=
+```
+
+---
+
+## 💻 Running O.M.N.I.S
+
+### Mode A: Interactive Multi-Agent Command Center
+Run the unified terminal dispatcher to query all agents:
+
+```bash
+cd O.M.N.I.S-main
 python omnis_agent.py
 ```
-*Try asking:*
-- `"What is the live price of Bitcoin and Fetch.ai today?"` ➔ Handled by **Crypto & Finance Agent**
-- `"Who won the latest Nobel Prize in Physics?"` ➔ Handled by **Web Search Agent**
-- `"What is the difference between stocks and bonds?"` ➔ Handled by **Economics Reasoning Agent**
 
-### 2. Voice-Activated Desktop Assistant
-Run the full voice pipeline (listening ➔ routing ➔ execution ➔ text-to-speech):
+*Example Queries:*
+- `"What is the live price of Bitcoin, Solana, and Fetch.ai?"` ➔ **Finance Agent**
+- `"Who is the current Prime Minister of the United Kingdom?"` ➔ **Web Search Agent**
+- `"Explain zero-knowledge proofs in simple terms."` ➔ **Core Swarm AI**
+
+---
+
+### Mode B: Deploying to Agentverse Cloud (ASI:One)
+
+1. Open **[Agentverse Launchpad](https://agentverse.ai/agents/launch)**.
+2. Click **+ New Agent** ➔ Select **Blank Agent**.
+3. In the code editor, paste the contents of:
+   [`O.M.N.I.S-main/FetchAI_Ecosystem/agentverse_omnis_cloud.py`](file:///c:/Users/navje/Downloads/O.M.N.I.S-main/O.M.N.I.S-main/FetchAI_Ecosystem/agentverse_omnis_cloud.py)
+4. Go to the **Secrets** tab in the left sidebar:
+   - Secret Name: `GROQ_API_KEY`
+   - Secret Value: *Your Groq API key*
+5. Click **Start**.
+6. The agent address will appear in the console logs and register with the Almanac contract. You can now chat directly with O.M.N.I.S on **[ASI:One](https://asi1.ai/)**!
+
+---
+
+### Mode C: Voice-Activated Desktop Assistant
+Launch the full desktop pipeline featuring live voice recognition, intent classification, desktop app control, and speech synthesis:
+
 ```bash
+cd O.M.N.I.S-main
 python Main.py
 ```
 
-### 3. Standalone Agent Tests
-- **Web Search Agent**:
-  ```bash
-  python Agents/WebSearchAgent/client.py
-  ```
-- **Finance & Crypto Agent**:
-  ```bash
-  python Agents/FinanceAgent/client.py
-  ```
-- **ASI:One ACP Handshake Simulation**:
-  ```bash
-  python FetchAI_Ecosystem/test_asione_interaction.py
-  ```
+---
+
+## 🏆 Hackathon Tracks Alignment
+
+| Criterion | Implementation in O.M.N.I.S |
+| :--- | :--- |
+| **Best Multi-Agent Workflow** | Semantic DMM router dynamically delegates incoming user intent between the Finance Agent, Web Search Agent, and Desktop Automation Agent. |
+| **Best Personal AI** | Handles desktop automation (opening apps, playing media), real-time financial tracking, factual search, and conversational speech output. |
+| **Best Agentverse Deployment** | Zero-dependency, cloud-native script with ACP compliance, interactive cards (`MetadataContent`), and persistent memory via `ctx.storage`. |
 
 ---
 
-## 📁 Repository Structure
+## 📄 License
 
-```
-O.M.N.I.S-main/
-├── README.md                      # Hackathon Documentation & Badges
-├── omnis_agent.py                 # Universal Interactive Multi-Agent Runner
-├── Main.py                        # Voice & Desktop Assistant Loop
-├── .env                           # API Keys (Groq, Cohere)
-├── Agents/
-│   ├── agent_hub.py               # Dynamic Intent Router & Orchestrator
-│   ├── FinanceAgent/              # Crypto & Finance Agent (Agentverse Protocol)
-│   │   ├── protocol.py            # Typed FinanceQA & Response models
-│   │   ├── finance_agent.py       # Standalone uAgent & CoinGecko engine
-│   │   └── client.py              # Synchronous OMNIS bridge
-│   └── WebSearchAgent/            # Realtime Web Search & Scraping Agent
-│       ├── protocol.py            # Typed SearchRequest & SearchResponse
-│       ├── search_agent.py        # Standalone DuckDuckGo + Groq uAgent
-│       └── client.py              # Fail-safe search connector
-├── FetchAI_Ecosystem/
-│   ├── omnis_acp_agent.py         # Official Agent Chat Protocol (ACP) Agent for ASI:One
-│   └── test_asione_interaction.py # Simulated ASI:One ACP interaction test
-└── Backend/                       # Voice STT, TTS, Chatbot, and Automation
-```
-
----
-
-## 🏆 Fetch-A-Thon 3.0 Deliverables
-- **GitHub Repository:** Public repo with all agents, protocols, and instructions.
-- **ASI:One Compatibility:** Implements `uagents_core.contrib.protocols.chat` (ACP).
-- **Target Category:** *Best Multi-Agent Workflow* & *Best Personal AI*.
+This project is open-source under the [MIT License](LICENSE).
